@@ -92,7 +92,7 @@ function App() {
       <ResultModal 
         isOpen={winner !== null} 
         winner={winner} 
-        onClose={resetGame}
+        onPlayAgain={resetGame}
       />
 
       <footer className="app-footer">

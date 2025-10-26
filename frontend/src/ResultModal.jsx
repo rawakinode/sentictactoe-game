@@ -3,15 +3,15 @@ import './ResultModal.css';
 import playerIcon from './assets/player.svg';
 import aiIcon from './assets/ai.svg';
 
-const ResultModal = ({ isOpen, winner, onClose }) => {
+const ResultModal = ({ isOpen, winner, onPlayAgain }) => {
   if (!isOpen) return null;
 
   const isWin = winner === 'X';
   const isDraw = winner === 'Draw';
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+    <div className="modal-backdrop">
+      <div className="modal-content">
         {!isDraw && (
           <>
             <div className={isWin ? 'win' : 'lose'}>
@@ -41,7 +41,7 @@ const ResultModal = ({ isOpen, winner, onClose }) => {
             <p className="modal-message">Great game! Both players played well.</p>
           </div>
         )}
-        <button onClick={onClose}>Play Again</button>
+        <button onClick={onPlayAgain} className="play-again-btn">Play Again</button>
       </div>
     </div>
   );

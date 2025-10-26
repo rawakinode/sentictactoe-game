@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const FireworksAIService = require('../services/FireworksAIService');
-const MinimaxAIService = require('../services/MinimaxAIService');
 
 const fireworksService = new FireworksAIService();
-const minimaxService = new MinimaxAIService();
 
 router.post('/ai-move', async (req, res) => {
   try {
@@ -20,49 +18,28 @@ router.post('/ai-move', async (req, res) => {
       moveHistory: moveHistory || []
     };
 
-    // Decide strategy: try Fireworks if enabled and key present, else use Minimax
-    const useFireworks = (process.env.USE_FIREWORKS === 'true') && !!process.env.FIREWORKS_API_KEY;
     let aiMove = null;
-
-    if (useFireworks) {
-      try {
-        const fwMove = await fireworksService.getAIMove(gameState);
-
-        // validate move
-        const validMoves = board.map((cell, index) => cell === null ? index : -1).filter(i => i !== -1);
-        const minimaxBest = minimaxService.getBestMove(gameState, 'O');
-
-        const isValid = (typeof fwMove === 'number') && fwMove >= 0 && fwMove <= 8 && board[fwMove] === null;
-
-        if (!isValid) {
-          aiMove = minimaxBest.move;
-        } else {
-          // evaluate fwMove by simulating and using minimax score — prefer minimax if fw move is worse
-          const boardAfterFW = board.slice();
-          boardAfterFW[fwMove] = 'O';
-          const fwScore = minimaxService.minimax(boardAfterFW, 'X', 'O').score;
-          const bestScore = minimaxBest.score;
-
-          // If fireworks chooses a move with lower minimax score than the best, pick minimax's move
-          if (fwScore < bestScore) {
-            aiMove = minimaxBest.move;
-          } else {
-            aiMove = fwMove;
-          }
-        }
-      } catch (err) {
-        console.error('Fireworks failed, falling back to Minimax:', err.message || err);
-        aiMove = minimaxService.getBestMove(gameState, 'O').move;
+    
+    try {
+      aiMove = await fireworksService.getAIMove(gameState);
+      
+      // Validate move
+      const isValid = (typeof aiMove === 'number') && aiMove >= 0 && aiMove <= 8 && board[aiMove] === null;
+      
+      if (!isValid) {
+        // If move is invalid, use strategic fallback from FireworksAIService
+        aiMove = fireworksService.getStrategicFallbackMove(board);
       }
-    } else {
-      // Fireworks disabled or no key -> use minimax for perfect play
-      aiMove = minimaxService.getBestMove(gameState, 'O').move;
+    } catch (err) {
+      console.error('Fireworks error:', err.message || err);
+      // Use strategic fallback on error
+      aiMove = fireworksService.getStrategicFallbackMove(board);
     }
 
     // Final safety: if still invalid, pick first available
     if (typeof aiMove !== 'number' || aiMove < 0 || aiMove > 8 || board[aiMove] !== null) {
       const validMoves = board.map((cell, index) => cell === null ? index : -1).filter(i => i !== -1);
-      aiMove = validMoves.length > 0 ? validMoves[0] : minimaxService.getRandomMove(board);
+      aiMove = validMoves.length > 0 ? validMoves[0] : Math.floor(Math.random() * 9);
     }
 
     res.json({ move: aiMove, player: 'O', timestamp: new Date().toISOString() });

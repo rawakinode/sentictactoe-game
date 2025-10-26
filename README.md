@@ -2,6 +2,8 @@
 
 A modern implementation of TicTacToe featuring an AI opponent powered by Sentient Foundation's Dobby Unhinged LLaMA 3 70B model. Experience strategic gameplay against one of the most advanced language models trained for tactical decision making!
 
+🎮 **[Play Now: https://sentictactoe-game.vercel.app/](https://sentictactoe-game.vercel.app/)**
+
 ## ✨ Features
 
 - 🤖 AI opponent powered by Sentient's Dobby Unhinged LLaMA 3 70B
@@ -56,7 +58,12 @@ npm install
 npm run dev
 ```
 
-The game will be available at `http://localhost:5173`
+The development server will be available at `http://localhost:5173`
+
+## 🌐 Live Demo
+
+The game is deployed and available online at:
+- **[https://sentictactoe-game.vercel.app/](https://sentictactoe-game.vercel.app/)**
 
 ## ⚙️ Configuration
 

@@ -1,10 +1,10 @@
 # 🎮 Senti TicTacToe
 
-A modern implementation of TicTacToe featuring an AI opponent powered by Fireworks AI. Play against an AI that learns and adapts to your strategy!
+A modern implementation of TicTacToe featuring an AI opponent powered by Sentient Foundation's Dobby Unhinged LLaMA 3 70B model. Experience strategic gameplay against one of the most advanced language models trained for tactical decision making!
 
 ## ✨ Features
 
-- 🤖 AI opponent powered by Fireworks AI
+- 🤖 AI opponent powered by Sentient's Dobby Unhinged LLaMA 3 70B
 - 🎯 Strategic fallback system for consistent gameplay
 - 📊 Game statistics tracking
 - 💫 Smooth animations and modern UI
@@ -23,15 +23,16 @@ A modern implementation of TicTacToe featuring an AI opponent powered by Firewor
 
 ### Backend
 - Express.js
-- Fireworks AI integration
-- Strategic fallback system
-- Move caching for performance
+- Sentient AI model integration via Fireworks API
+- Advanced move analysis system
+- Strategic caching for consistent performance
+- Pattern recognition and tactical planning
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js 18+ installed
-- Fireworks AI API key ([Get one here](https://fireworks.ai))
+- API key from Fireworks platform (for accessing Sentient's model)
 
 ### Backend Setup
 
@@ -63,8 +64,16 @@ The game will be available at `http://localhost:5173`
 
 ```env
 FIREWORKS_API_KEY=your_api_key_here
-FIREWORKS_MODEL=accounts/sentientfoundation/models/dobby-unhinged-llama-3-3-70b-new
+FIREWORKS_MODEL=accounts/sentientfoundation/models/dobby-unhinged-llama-3-3-70b-new  # Sentient's strategic gaming model
 ```
+
+### About the AI Model
+
+The game uses Sentient Foundation's Dobby Unhinged LLaMA 3 70B, a specialized variant of LLaMA fine-tuned for strategic gaming and tactical decision making. This model excels at:
+- Pattern recognition in game states
+- Strategic position evaluation
+- Tactical move planning
+- Adaptive gameplay based on opponent patterns
 
 ## 🎮 How to Play
 
@@ -75,21 +84,34 @@ FIREWORKS_MODEL=accounts/sentientfoundation/models/dobby-unhinged-llama-3-3-70b-
 5. Continue until someone wins or the game draws
 6. Click "Play Again" to start a new game
 
-## 🧠 AI Features
+## 🧠 AI Capabilities
 
-- Move analysis and prediction
-- Strategic position evaluation
-- Winning move detection
-- Blocking opponent's winning moves
-- Fork opportunity detection
-- Move caching for performance
+### Advanced Decision Making
+- Deep strategic analysis using Sentient's neural architecture
+- Pattern recognition from extensive game training
+- Dynamic difficulty adaptation
+- Real-time position evaluation
 
-## 🔒 Fallback System
+### Tactical Features
+- Winning sequence identification
+- Counter-move prediction
+- Fork creation and prevention
+- Advanced board state analysis
+- Multi-step move planning
 
-The game includes a robust fallback system:
-1. Primary: Fireworks AI decision making
-2. Secondary: Strategic position-based moves
-3. Final: Random valid move selection
+### Performance Optimization
+- Move caching system
+- Quick response failsafe
+- Position evaluation memory
+- Strategic pattern database
+
+## 🔒 Reliability System
+
+The game includes a sophisticated reliability system:
+1. Primary: Sentient AI strategic analysis
+2. Secondary: Pattern-based tactical moves
+3. Tertiary: Position-based strategic decisions
+4. Fallback: Guaranteed valid move selection
 
 ## 📈 Statistics
 

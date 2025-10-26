@@ -93,7 +93,7 @@ const useTicTacToe = () => {
     setIsLoading(true);
 
     try {
-      const aiResponse = await fetch('http://localhost:3001/api/ai-move', {
+      const aiResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/ai-move`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ board: newBoard, currentPlayer: 'O', moveHistory: newMoveHistory })

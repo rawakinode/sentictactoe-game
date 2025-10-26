@@ -60,11 +60,17 @@ The game will be available at `http://localhost:5173`
 
 ## ⚙️ Configuration
 
-### Environment Variables (.env)
+### Environment Variables
 
+#### Backend (.env)
 ```env
 FIREWORKS_API_KEY=your_api_key_here
 FIREWORKS_MODEL=accounts/sentientfoundation/models/dobby-unhinged-llama-3-3-70b-new  # Sentient's strategic gaming model
+```
+
+#### Frontend (.env)
+```env
+VITE_API_URL=http://localhost:3001  # Backend API URL
 ```
 
 ### About the AI Model

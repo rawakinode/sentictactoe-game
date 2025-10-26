@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke="#e74c3c" stroke-width="8" stroke-linecap="round">
+  <line x1="20" y1="20" x2="80" y2="80">
+    <animate attributeName="stroke-dasharray" from="0,120" to="120,120" dur="0.3s" fill="freeze"/>
+  </line>
+  <line x1="80" y1="20" x2="20" y2="80">
+    <animate attributeName="stroke-dasharray" from="0,120" to="120,120" dur="0.3s" begin="0.1s" fill="freeze"/>
+  </line>
+</svg>

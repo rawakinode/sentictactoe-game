@@ -1,0 +1,61 @@
+.stats-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.75rem auto;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  max-width: fit-content;
+}
+
+.stat-box {
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  min-width: 60px;
+  transition: transform 0.2s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-1px);
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.1rem;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.win-rate {
+  color: #2ecc71;
+}
+
+.reset-stats-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  margin-left: 0.25rem;
+}
+
+.reset-stats-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
